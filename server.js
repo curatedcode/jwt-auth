@@ -56,4 +56,8 @@ app.post('/login', (req, res) => {
   }
 })
 
+app.get('/secret', passport.authenticate('jwt', { session: false }), (req, res) => {
+  res.json("If you\'re reading this you have a valid token")
+})
+
 app.listen(3000, () => console.log("Server started on port 3000"))
